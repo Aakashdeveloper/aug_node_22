@@ -4,6 +4,18 @@ https://git-scm.com/downloads > Install
 https://github.com/ > Create Account
 https://github.com/Aakashdeveloper > Follow
 
+Extensions
+#Chrome
+> https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
+
+#VsCode
+> Vscode-icons
+> spellCheck
+> Tabnine
+> githistory
+> gitlens
+
+
 NPM
 Basic NodeJS(in built)(Os,file,http)
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
@@ -42,3 +54,26 @@ Html/css/jquery
 
 microservice(aws lambda)
 upload to s3 bucket
+
+
+/////////////////
+NodeJs>
+Single Threaded
+Async 
+NonBlocking I/O
+
+Code source
+    ||
+    \/
+Byte Code(Not Required in node)
+    ||
+    \/
+Machine Code
+
+C++ + Libuv
+v8 engine
+
+open source
+> any body can contribute to development
+(supporting lib)
+node_module/dependency/packages
