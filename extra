@@ -77,3 +77,35 @@ open source
 > any body can contribute to development
 (supporting lib)
 node_module/dependency/packages
+
+////////////////////////////////////////////////////////////////
+NPM > Node Package Manager
+
+package.json
+> Starting point to application
+> MetaData(Name,Version,Description)
+> Package require for app
+> Script (start,build and test the app)
+
+
+////////////////////////////////////////////////////////////////
+Step to generate package.json
+///////////////
+*NodeJs must be install in laptop
+> open cmd/terminal and go inside the folder using cmd
+> npm init
+> Answer all question
+> Type "yes"
+
+
+////////////////////////
+Step to install package (local)
+///////////////////////
+> open cmd/terminal and go inside the folder using cmd
+> npm i packagename
+
+
+node_modules > Here all the package download
+package-lock > dependency tree
+.gitignore > to avoide pushing to git
+Readme.md > detail description of app
