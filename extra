@@ -18,6 +18,7 @@ Extensions
 
 NPM
 Basic NodeJS(in built)(Os,file,http)
+
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
 Third Party Api (Weather Api)
 Redis  > 6379
@@ -111,6 +112,22 @@ package-lock > dependency tree
 Readme.md > detail description of app
 
 
+//es5
+Ecma Script 5
+//es6
+Ecma Script 6
+
+
+var a = 10
+var b = "my age is "+a
+"my age is 10"
+
+let a = 10
+let b = `my age is ${a}`
+"my age is 10"
+
+
+
 Dear Students please pay the fee for ________(Course name)_____ (time) by Mr. __________ Fee  Rs. _______
 
 Bank Details 
@@ -134,3 +151,15 @@ Please share your feedback to  Admin
 Thanks and Regards 
 Naresh
 Mobile:8919944069 (Only Whatsapp)
+
+Demo: 01 ( 08-08-2022)
+Video Link: shorturl.at/gmTW9
+Password: 49^5l0$5
+
+Demo: 02 ( 09-08-2022)
+Video Link: shorturl.at/GQTW0
+Password: 15.cfgTf
+
+Demo: 03 ( 10-08-2022)
+Video Link: shorturl.at/VX157
+Password: @P4!eMsF
