@@ -8,9 +8,27 @@ let fs = require('fs');
 // })
 
 // this will add the content in same file
-fs.appendFile('mycode.txt',`${Math.floor(Math.random()*1000)} Node Code \n`,function(err){
+// fs.appendFile('mycode.txt',`${Math.floor(Math.random()*1000)} Node Code \n`,function(err){
+//     if(err) throw err;
+//     console.log('File Appended')
+// })
+
+
+//read
+// fs.readFile('db.json','utf-8',(err,data) => {
+//     if(err) throw err;
+//     console.log(data)
+// })
+
+
+// //delete
+// fs.unlink('mycode.txt',(err)=>{
+//     if(err) throw err;
+//     console.log('File Deleted')
+// })
+
+//rename
+fs.rename('mytext.txt','mycode.txt',(err)=>{
     if(err) throw err;
-    console.log('File Appended')
+    console.log('File Renamed')
 })
-
-

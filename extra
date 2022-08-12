@@ -123,8 +123,20 @@ var b = "my age is "+a
 "my age is 10"
 
 let a = 10
-let b = `my age is ${a}`
+let b = `my age is ${a}`  (string literals)
 "my age is 10"
+
+//es5
+function add(a,b){
+    return a+b
+}
+add(1,2)
+3
+
+//es6
+let add = (a,b) => { return a+b}
+add(1,2)
+3
 
 
 
@@ -163,3 +175,7 @@ Password: 15.cfgTf
 Demo: 03 ( 10-08-2022)
 Video Link: shorturl.at/VX157
 Password: @P4!eMsF
+
+Demo: 04 ( 11-08-2022)
+Video Link: shorturl.at/cfmox
+Password: $Y9bfPqa
