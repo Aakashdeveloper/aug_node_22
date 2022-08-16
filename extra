@@ -18,7 +18,7 @@ Extensions
 
 NPM
 Basic NodeJS(in built)(Os,file,http)
-
+////////////////////
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
 Third Party Api (Weather Api)
 Redis  > 6379
@@ -46,8 +46,7 @@ GraphQl API
 Paytm-Payment
 Oauth(with google)
 NodeJs with postgres
-Email With Node(nodemailer)
-Chatapp
+charanjeet
 FIREBASE
 --------NOT---------
 React/Angular
@@ -137,6 +136,51 @@ add(1,2)
 let add = (a,b) => { return a+b}
 add(1,2)
 3
+
+///////JSON//////
+> JavaScript Object Notation
+[
+    {
+        "name":"Niki",
+        "city":"Paris"
+    },
+    {
+        "name":"Lavi",
+        "city":"Amsterdam",
+        "age":25
+    }
+]
+
+////////
+Local Dependency
+> Local to folder 
+> Can be used only in one app 
+> No Admin permisiion is require to install
+> Added to package.json
+# npm i packagename
+
+global Dependency
+> Install in laptop
+> Can be use for any app
+> Will not add to package.json
+> Need Admin permisiion to install
+> Only packages require befor app start 
+# npm i -g packagename
+
+
+dev Dependency
+
+//////Step to install global dependencies//////
+#window
+> open cmd as administrator
+> npm i -g packagename
+
+#mac/linux
+> open terminal
+> sudo npm i -g packagename
+
+///////CD////
+npm i -g nodemon
 
 
 
