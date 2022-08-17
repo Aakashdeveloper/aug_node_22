@@ -183,6 +183,12 @@ dev Dependency
 npm i -g nodemon
 
 
+GET >>> Get the data 
+POST
+PUT
+DELETE
+
+
 
 Dear Students please pay the fee for ________(Course name)_____ (time) by Mr. __________ Fee  Rs. _______
 
