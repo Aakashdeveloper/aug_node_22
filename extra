@@ -169,6 +169,8 @@ global Dependency
 
 
 dev Dependency
+> Just like local
+> Only Dependency used at the time of deployment
 
 //////Step to install global dependencies//////
 #window

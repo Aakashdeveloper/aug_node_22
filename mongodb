@@ -1,0 +1,21 @@
+roll No | Hindi | English |
+   1    |  80   |         |
+   2    |       |   76    |
+   3    |  88   |         |
+
+//MongoDb
+[
+    {
+        "rollNo":1,
+        "Hindi":80,
+        "computer":98
+    },
+    {
+        "rollNo":3,
+        "English":76
+    },
+    {
+        "rollNo":1,
+        "Hindi":88
+    }
+]

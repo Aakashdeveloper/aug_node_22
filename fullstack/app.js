@@ -3,8 +3,24 @@ let app = express();
 let dotenv = require('dotenv');
 dotenv.config()
 let port = process.env.PORT || 7230;
-let categoryRouter = require('./src/router/categoryRouter');
-let productRouter = require('./src/router/productRouter');
+let morgan = require('morgan');
+let fs = require('fs');
+// let helmet = require('helmet')
+
+//middleware
+app.use(morgan('short',{stream:fs.createWriteStream('./app.log')}))
+// app.use(helmet()) //https://www.npmjs.com/package/helmet
+// app.use(helmet.xssFilter());
+
+let menu = [
+    {link:'/',name:'Home'},
+    {link:'/category',name:'Category'},
+    {link:'/products',name:'Products'}
+]
+
+let categoryRouter = require('./src/router/categoryRouter')(menu);
+let productRouter = require('./src/router/productRouter')(menu);
+
 
 //static file path
 app.use(express.static(__dirname+'/public'))
@@ -16,7 +32,7 @@ app.set('view engine','ejs')
 //default
 app.get('/',function(req,res){
     //res.send('<h1>HII FROM EXPRESS</h1>')
-    res.render('index',{title:'Home Page'})
+    res.render('index',{title:'Home Page',menu})
 })
 
 app.use('/category',categoryRouter);

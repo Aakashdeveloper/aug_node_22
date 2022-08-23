@@ -24,17 +24,23 @@ var category = [
     }
 ]
 
-// default route for category
-categoryRouter.route('/')
-    .get(function(req,res){
-        //res.send(category) 
-        res.render('category',{title:'Category Page',data:category})
-    })
+function router(menu){
+    // default route for category
+    categoryRouter.route('/')
+        .get(function(req,res){
+            //res.send(category) 
+            res.render('category',{title:'Category Page',data:category,menu:menu})
+        })
 
-// details route for category   
-categoryRouter.route('/details')
-    .get(function(req,res){
-        res.send('Category Details')
-    })
+    // details route for category   
+    categoryRouter.route('/details')
+        .get(function(req,res){
+            res.send('Category Details')
+        })
 
-module.exports = categoryRouter
+    return categoryRouter
+}
+
+
+
+module.exports = router
