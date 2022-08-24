@@ -19,3 +19,73 @@ roll No | Hindi | English |
         "Hindi":88
     }
 ]
+
+SQl        MongoDB
+DataBase   DataBase
+Tables     Collections
+Row        Document
+Select     Find
+Insert     Insert
+Update     Update
+Delete     Remove
+
+/////////Start MongoDB Sever(Local)////////
+#window
+(Server)
+> open cmd and navigate to bin
+> go inside folder C:\Program Files\MongoDB\5.5\Server\Bin
+> mongod
+(start server on port 27017)
+** Do not close this cmd if using mongo in app
+ 
+(Client) ** Only require to test queries
+> open cmd and navigate to bin
+> mongo
+
+-----------------------------------------
+#mac/linux
+(start server on port 27017)
+> open terminal
+> mongod --dbpath data/db
+> ** Do not close this terminal if using mongo in app
+
+(Client) ** Only require to test queries
+> open terminal
+> mongo
+
+>Show All Database
+* show dbs
+
+> Go Inside database
+* use database
+
+> See all the collections
+* show collections
+
+> See Datainside collection (find all records)
+db.collectionName.find()
+db.category.find()
+
+**only for cmd line
+db.category.find().pretty()
+
+> To Create Database
+* use 
+
+> To Insert Record
+* db.collectionName.insert({})
+
+db.users.insert({"name":"Amit"})
+db.users.insert({"name":"Manisha","city":"Chandigarh"})
+db.users.insert({_id:1,"name":"John"})
+db.users.insert({_id:2,"name":"Kanika"})
+
+_id 
+> Default Key (Primary Key)
+> It always contains unique value
+> We can add out own value to _id but should unique
+
+Default (12 byte)
+> Random number (5 byte)
+> Series (3 bytes)
+> TimeStamp (4 Bytes)
