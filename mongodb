@@ -89,3 +89,19 @@ Default (12 byte)
 > Random number (5 byte)
 > Series (3 bytes)
 > TimeStamp (4 Bytes)
+
+////Find with condition
+db.products.find({category_id:2,company:"Lloyd"})
+
+//projection(which all fields you want)
+db.products.find({condition},{projection})
+
+db.products.find({category_id:2},{product_name:1,category:1,_id:0})
+
+
+db.products.count({category_id:2,company:"Lloyd"})
+
+db.products.find({},{product_name:1,category:1,_id:0}).skip(5).limit(5)
+
+
+db.products.find({category_id:2},{product_name:1,_id:0}).sort({product_name:-1})
