@@ -210,3 +210,14 @@ C:\data\db
 # mac & linux
 > open terminal
 > sudo mkdir data/db
+
+
+//////
+# params
+> what we pass after / in url
+> We need to define params in route
+> Complusory to pass parameters if defined
+# Query params
+> what we pass after ? in url
+> No Need to define params in route
+> Not Complusory to pass QueryParams
