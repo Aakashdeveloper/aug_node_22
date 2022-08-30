@@ -50,7 +50,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1><%=title%>
+        <h1><%=data[0].product_name%>
           <p class="lead"></p>
         </h1>
       </div>
@@ -89,20 +89,20 @@
           
           
           <!--/stories-->
-          <% for(i=0;i<data.length;i++){%>
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="<%=data[i].Image%>" style="width:100px;height:100px" class="img-circle"></a>
+              <a class="story-title" href="#"><img alt="" src="<%=data[0].Image%>" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
-              <h3><%=data[i].product_name%></h3>
+              <h3><%=data[0].product_name%></h3>
               <div class="row">
                 <div class="col-xs-9">
-                  <h4><span class="label label-default"><%=data[i].Color%></span></h4><h4>
+                  <h4><span class="label label-default"><%=data[0].Color%></span></h4><h4>
                   <small style="font-family:courier,'new courier';" class="text-muted">
-                    <%=data[i].Brand?data[i].Brand:data[i].company%>  • 
-                    <a href="/products/details/<%=data[i]._id%>" class="text-muted">Read More</a></small>
+                    <%=data[0].Brand?data[0].Brand:data[0].company%>  • 
+                    Rs. <%=data[0].Price%>
+                    </small>
                   </h4></div>
                 <div class="col-xs-3"></div>
               </div>
@@ -110,7 +110,6 @@
             </div>
           </div>
           <hr>
-          <%}%>
           
           
           <!--/stories-->

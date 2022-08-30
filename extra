@@ -18,8 +18,8 @@ Extensions
 
 NPM
 Basic NodeJS(in built)(Os,file,http)
-////////////////////
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
+////////////////////
 Third Party Api (Weather Api)
 Redis  > 6379
 ImageUpload
@@ -221,3 +221,5 @@ C:\data\db
 > what we pass after ? in url
 > No Need to define params in route
 > Not Complusory to pass QueryParams
+
+
