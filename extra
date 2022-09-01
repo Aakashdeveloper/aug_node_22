@@ -19,12 +19,13 @@ Extensions
 NPM
 Basic NodeJS(in built)(Os,file,http)
 NodeJS(full Stack App) (Node-EJs-Mongo-Express)
-////////////////////
 Third Party Api (Weather Api)
 Redis  > 6379
-ImageUpload
-ImageUpload(formidable)
+////////////////////
 RedisWithMongo
+ImageUpload(expressfileupload)
+
+ImageUpload(formidable)
 Node-Es6(.babel)
 MongoDb Basic >27017  (local/cloud)
 Zomato App backend
@@ -223,3 +224,15 @@ C:\data\db
 > Not Complusory to pass QueryParams
 
 
+download Redis > https://github.com/dmajkic/redis/downloads
+
+
+////////
+KEYS *
+set key value
+get key
+del key
+FlushALl
+
+
+npm i redis@3.1.0
