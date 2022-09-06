@@ -1,5 +1,5 @@
-let express = require('express');
-let request = require('request');
+import express from 'express'
+import request from 'request'
 let app = express();
 let port = process.env.PORT || 8790;
 
@@ -24,3 +24,6 @@ app.listen(port,(err) => {
     if(err) throw err;
     console.log(`listening on port ${port}`)
 })
+
+// let express = require('express');
+// let request = require('request');
