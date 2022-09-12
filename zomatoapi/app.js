@@ -48,8 +48,16 @@ app.get('/location',(req,res) => {
 app.get('/restaurants',(req,res) => {
     let query = {}
     let stateId = Number(req.query.stateId)
-    if(stateId){
+    let mealId = Number(req.query.mealId)
+    if(stateId && mealId){
+        query = {'state_id':stateId,'mealTypes.mealtype_id':mealId}
+    }
+    else if(stateId){
         query = {'state_id':stateId}
+    }else if(mealId){
+        query = {'mealTypes.mealtype_id':mealId}
+    }else{
+        query = {} 
     }
     db.collection('restaurants').find(query).toArray((err,data) => {
         if(err) throw err;
@@ -65,6 +73,46 @@ app.get('/mealType',(req,res) => {
     })
 })
 
+//filters
+app.get('/filters/:mealId',(req,res) => {
+    let query = {}
+    let sort = {cost:1}
+    let skip = 0;
+    let limit = 100000000000;
+    let mealId =Number(req.params.mealId);
+    let cuisineId = Number(req.query.cuisineId);
+    let lcost = Number(req.query.lcost)
+    let hcost = Number(req.query.hcost)
+    if(req.query.sort){
+       sort={cost:req.query.sort} 
+    }
+    if(req.query.skip && req.query.limit){
+        skip = Number(req.query.skip)
+        limit = Number(req.query.limit)
+    }
+    if(cuisineId){
+        query={'mealTypes.mealtype_id':mealId,'cuisines.cuisine_id':cuisineId}
+    }else if(lcost && hcost){
+        query={
+            'mealTypes.mealtype_id':mealId,
+            $and:[{cost:{$gt:lcost,$lt:hcost}}]
+        }
+    }
+    db.collection('restaurants').find(query).sort(sort).skip(skip).limit(limit).toArray((err,data) => {
+        if(err) throw err;
+        res.send(data)
+    })
+})
+
+//restaurants details
+app.get('/details/:id',(req,res)=>{
+    let restaurant_id = Number(req.params.id);
+    //let _id = mongo.ObjectId(req.params.id);
+    db.collection('restaurants').find({restaurant_id}).toArray((err,data) => {
+        if(err) throw err;
+        res.send(data)
+    })
+})
 
 
 MongoClient.connect(mongoUrl,(err,client)=>{
