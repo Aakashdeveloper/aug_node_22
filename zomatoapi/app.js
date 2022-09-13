@@ -114,6 +114,84 @@ app.get('/details/:id',(req,res)=>{
     })
 })
 
+//menu wrt to restaurants
+app.get('/menu/:id',(req,res)=>{
+    let restaurant_id = Number(req.params.id);
+    db.collection('menu').find({restaurant_id}).toArray((err,data) => {
+        if(err) throw err;
+        res.send(data)
+    })
+})
+
+// menu wrt to ids
+app.post('/menuItem',(req,res) => {
+    if(Array.isArray(req.body)){
+        db.collection('menu').find({menu_id:{$in:req.body}}).toArray((err,data) => {
+            if(err) throw err;
+            res.send(data)
+        })
+    }else{
+        res.send('Please Enter Array Only')
+    }
+})
+
+//placeOrder
+app.post('/placeOrder',(req,res) => {
+    db.collection('orders').insert(req.body,(err,data) => {
+        if(err) throw err;
+        res.send('Order Placed')
+    })
+})
+
+
+app.get('/getOrder',(req,res) => {
+    let query = {}
+    if(req.query.email){
+        query = {email:req.query.email}
+    }
+    db.collection('orders').find(query).toArray((err,data) => {
+        if(err) throw err;
+        res.send(data)
+    })
+})
+
+//remove orders
+app.delete('/removeOrder',(req,res) => {
+    let id = mongo.ObjectId(req.body._id)
+    db.collection('orders').find({_id:id}).toArray((err,data) => {
+       if(data.length != 0){
+        db.collection('orders').remove({_id:id},(err,result) =>{
+            res.send('Order Deleted')
+        })
+       }else{
+        res.send('No Result Found')
+       }
+    })
+})
+
+// Delete Order
+app.delete('/removeAllOrder',(req,res) => {
+    db.collection('orders').remove({},(err,result) =>{
+        res.send('Order Deleted')
+    })
+})
+
+
+// Update Orders
+app.put('/updateOrder',(req,res) => {
+    db.collection('orders').updateOne(
+        {_id:mongo.ObjectId(req.body._id)},
+        {
+            $set: {
+                "status":req.body.status
+            }
+        },(err,result)=>{
+            if(err) throw err;
+            res.status(200).send('Status Updated')
+        }
+    )
+})
+
 
 MongoClient.connect(mongoUrl,(err,client)=>{
     if(err) console.log('Error While Connecting')

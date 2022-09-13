@@ -112,3 +112,10 @@ db.restaurants.find({cost:{$gt:500,$lt:800}},{restaurant_name:1,cost:1,_id:0}).p
 
 
 db.restaurants.find({"mealTypes.mealtype_id":{$in:[1,5,6]}}).pretty()
+
+
+
+db.orders.updateOne(
+    {condition},
+    {$set:{data}}
+)
