@@ -1,0 +1,16 @@
+git clone https://github.com/Aakashdeveloper/aug_ang_22
+
+> https://raw.githubusercontent.com/Aakashdeveloper/Aakashdeveloper/master/README.md
+
+///First time from new folder
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/Aakashdeveloper/TestCode.git
+git push
+
+
+//Next All time from same folder
+git add .
+git commit -m "first commit"
+git push
