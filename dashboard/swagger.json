@@ -1,0 +1,188 @@
+{
+    "openapi":"3.0.0.",
+    "info":{
+        "description": "This is user APi",
+        "version":"__version__"
+    },
+    "tags":[
+        {
+            "name":"PUBLIC ROUTE",
+            "description":"PUBLIC ROUTE"
+        }
+    ],
+    "paths":{
+        "/health":{
+            "summary":"Testing Health Check",
+            "get":{
+                "description":"Testing Health Get",
+                "tags":["PUBLIC Route"],
+                "responses":{
+                    "200":{
+                        "description":"Health Check Pass"
+                    },
+                    "404":{
+                        "description":"No Route Found"
+                    }
+                }
+            }
+        },
+        "/users":{
+            "summary":"Testing Users",
+            "get":{
+                "description":"Get All Users",
+                "tags":["PUBLIC Route"],
+                "parameters":[
+                    {
+                        "in":"query",
+                        "name":"role",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Choose User Role"
+                    },
+                    {
+                        "in":"query",
+                        "name":"city",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Choose User City"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Health Check Pass"
+                    },
+                    "404":{
+                        "description":"No Route Found"
+                    }
+                }
+            }
+        },
+        "/user/{id}":{
+            "summary":"Testing Particular Users",
+            "get":{
+                "description":"Get Particular Users",
+                "tags":["PUBLIC Route"],
+                "security":{
+                    "basic-auth":[]
+                },
+                "parameters":[
+                    {
+                        "in":"path",
+                        "required":true,
+                        "name":"id",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"Enter User id"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Health Check Pass"
+                    },
+                    "404":{
+                        "description":"No Route Found"
+                    }
+                }
+            }
+        },
+        "/addUser":{
+            "summary":"Add Users",
+            "post":{
+                "description":"Add Users",
+                "tags":["PUBLIC Route"],
+                "requestBody":{
+                    "required":true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "name":"Parul",
+                                "city":"InnsBurg",
+                                "phone":878786789,
+                                "role":"User",
+                                "isActive":true
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Health Check Pass"
+                    },
+                    "404":{
+                        "description":"No Route Found"
+                    }
+                }
+            }
+        },
+        "/updateUser":{
+            "summary":"Update Users",
+            "put":{
+                "description":"Update Users",
+                "tags":["PUBLIC Route"],
+                "requestBody":{
+                    "required":true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "_id":"6327eb8f936aed9434c38631",
+                                "name":"Parul",
+                                "city":"InnsBurg",
+                                "phone":878786789,
+                                "role":"User",
+                                "isActive":true
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Health Check Pass"
+                    },
+                    "404":{
+                        "description":"No Route Found"
+                    }
+                }
+            }
+        },
+        "/deleteUser":{
+            "summary":"Delete Users",
+            "delete":{
+                "description":"Delete Users",
+                "tags":["PUBLIC Route"],
+                "requestBody":{
+                    "required":true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "id":"string"
+                            },
+                            "example":{
+                                "_id":"6327eb8f936aed9434c38631"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Health Check Pass"
+                    },
+                    "404":{
+                        "description":"No Route Found"
+                    }
+                }
+            }
+        }
+    }
+}

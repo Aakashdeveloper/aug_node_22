@@ -8,8 +8,14 @@ let mongoUrl = process.env.mongourl;
 let port = process.env.PORT || 8100;
 let bodyParser = require('body-Parser')
 let cors = require('cors');
+let swaggerUi = require('swagger-ui-express');
+let swaggerDocument = require('./swagger.json');
+let package = require('./package.json');
 let db;
 let col_name = "adminUser";
+
+swaggerDocument.info.version = package.version;
+app.use('/api-doc',swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 // middleware
 app.use(bodyParser.urlencoded({ extended:true}));
@@ -84,13 +90,40 @@ app.put('/updateUser',(req,res) => {
 
 ///delete user
 app.delete('/deleteUser',(req,res) => {
-    let _id = mongo.ObjectId(req.params.id);
+    let _id = mongo.ObjectId(req.body._id);
     db.collection(col_name).remove({_id},(err,result) => {
         if(err) throw err;
         res.status(200).send('User Deleted')
     })
 })
 
+//soft delete
+app.put('/deactivateUser',(req,res) => {
+    db.collection(col_name).updateOne(
+        {_id:mongo.ObjectId(req.body._id)},
+        {
+            $set:{
+                isActive:false
+            }
+        },(err,result) => {
+            res.send('User Deactivated')
+        }
+    )
+})
+
+
+app.put('/activateUser',(req,res) => {
+    db.collection(col_name).updateOne(
+        {_id:mongo.ObjectId(req.body._id)},
+        {
+            $set:{
+                isActive:true
+            }
+        },(err,result) => {
+            res.send('User Activated')
+        }
+    )
+})
 
 
 
