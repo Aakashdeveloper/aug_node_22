@@ -21,9 +21,22 @@ app.use('/api-doc',swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use(bodyParser.urlencoded({ extended:true}));
 app.use(bodyParser.json());
 app.use(cors());
+app.set('views','./src/views')
+app.set('view engine','ejs')
 
 app.get('/health',(req,res) => {
     res.send('Health ok')
+})
+
+app.get('/',(req,res) => {
+    db.collection(col_name).find({}).toArray((err,result) => {
+        if(err) throw err;
+        res.render('index',{data:result});
+    })
+})
+
+app.get('/new',(req,res) => {
+    res.status(200).render('forms')
 })
 
 
@@ -64,9 +77,17 @@ app.get('/user/:id',(req,res) => {
 
 //add users
 app.post('/addUser',(req,res) => {
-    db.collection(col_name).insert(req.body,(err,result) => {
+    let data = {
+        name:req.body.name,
+        city:req.body.city,
+        phone:req.body.phone,
+        role:req.body.role?req.body.role:'User',
+        isActive:true
+    }
+    db.collection(col_name).insert(data,(err,result) => {
         if(err) throw err;
-        res.status(200).send('Data Added successfully')
+        //res.status(200).send('Data Added successfully')
+        res.redirect('/')
     })
 })
 
@@ -90,8 +111,8 @@ app.put('/updateUser',(req,res) => {
 
 ///delete user
 app.delete('/deleteUser',(req,res) => {
-    //let _id = mongo.ObjectId(req.body._id);
-    db.collection(col_name).remove({},(err,result) => {
+    let _id = mongo.ObjectId(req.body._id);
+    db.collection(col_name).remove({_id},(err,result) => {
         if(err) throw err;
         res.status(200).send('User Deleted')
     })

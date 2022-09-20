@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node apiwithoutUi.js",
+    "start": "node apiwithUi.js",
     "dev": "nodemon apiwithoutUi.js",
     "dev:ui": "nodemon apiwithUi.js",
     "ui": "node apiwithUi.js",
