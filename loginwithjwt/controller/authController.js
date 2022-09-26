@@ -41,7 +41,23 @@ router.post('/login',(req,res) => {
         else{
             const passIsValid = bcrypt.compareSync(req.body.password,user.password)
             if(!passIsValid) return res.send({auth:false,token:'Invalid Password'})
+            // in case both username & pwd valid than generate token
+            let token = jwt.sign({id:user._id},config.secret,{expiresIn:86400})//24 hrs
+            res.status(200).send({auth:true,token:token})
         }
+    })
+})
+
+//userInfo
+router.get('/userInfo',(req,res) => {
+    let token = req.headers['x-access-token'];
+    if(!token) return res.status(200).send({auth:true,token:'No Token Provided'})
+    //jwt verify
+    jwt.verify(token,config.secret,(err,user) => {
+        if(err) return res.status(200).send({auth:true,token:'Invalid Token Provided'})
+        User.findById(user.id,(err,result) => {
+            res.send(result)
+        })
     })
 })
 
