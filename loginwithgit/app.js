@@ -8,7 +8,7 @@ const cors = require('cors');
 app.use(cors());
 
 app.get('/',(req,res) => {
-    res.send('<a href="https://github.com/login/oauth/authorize?client_id=0741a9a14f1a57a685a1">Login With Git</a>')
+    res.send('<a href="https://github.com/login/oauth/authorize?client_id=">Login With Git</a>')
 })
 
 app.get('/profile',(req,res) => {
@@ -23,8 +23,8 @@ app.get('/profile',(req,res) => {
     superagent
         .post('https://github.com/login/oauth/access_token')
         .send({
-            client_id:'0741a9a14f1a57a685a1',
-            client_secret:'105a37f21e5f4756baa86548f33670ee71343c29',
+            client_id:'',
+            client_secret:'',
             code:code
         })
         .set('Accept','application/json')
