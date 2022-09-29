@@ -39,16 +39,15 @@ Heroku
 Pm2
 Nginx
 Jenkins
-////////////////////
-Github
 Docker
 TelegramChat
+Github
 GraphQl API
-
 Paytm-Payment
+Nodemailer
+////////////////////
 Oauth(with google)
 NodeJs with postgres
-Nodemailer
 FIREBASE
 --------NOT---------
 React/Angular
@@ -267,6 +266,7 @@ json-web-token
 (GET) => http://localhost:5000/api/auth/userinfo
 (Header) => {'x-access-token':'token value from login'}
 
+ ////////dummy api///
+ npx json-server --watch db.json --port 8700
 
-0741a9a14f1a57a685a1
-105a37f21e5f4756baa86548f33670ee71343c29
+ https://dashboard.paytm.com/
