@@ -45,7 +45,6 @@ Github
 GraphQl API
 Paytm-Payment
 Nodemailer
-////////////////////
 Oauth(with google)
 NodeJs with postgres
 FIREBASE
@@ -270,3 +269,11 @@ json-web-token
  npx json-server --watch db.json --port 8700
 
  https://dashboard.paytm.com/
+
+
+ pg_ctl -D /usr/local/var/postgres start
+
+ npm i -g firebase
+
+
+ https://github.com/Aakashdeveloper/Node-Interview-Question
